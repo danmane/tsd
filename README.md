@@ -4,7 +4,7 @@
 
 > TypeScript Definition manager for DefinitelyTyped
 
-TSD is a package manager to search and install [TypeScript](http://www.typescriptlang.org/) definition files directly from the community driven [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) repository. 
+TSD is a package manager to search and install [TypeScript](http://www.typescriptlang.org/) definition files directly from the community driven [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) repository.
 
 #### 0.5.x notes
 
@@ -63,20 +63,20 @@ It looks like this:
 ### Practical examples
 
 Minimal query for 'd3':
-		
+
 	$ tsd query d3
 
 List *everything*:
-		
+
 	$ tsd query *
 
 Tips: If you are using Linux or Mac OS X, use `$ tsd query "*"` command.
 
 Get some info about 'jquery':
-		
+
 	$ tsd query jquery --info --history --resolve
 	$ tsd query jquery -i -h -r
-	
+
 Install 'bootstrap' definitions:
 
 	$ tsd query bootstrap --action install
@@ -88,15 +88,15 @@ Solve the reference to 'jquery', overwrite existing files and save to the tsd.co
 	$ tsd query angular -r -o -s -a install
 
 Search for jquery plugins:
-		
+
 	$ tsd query */jquery.*
 
 Install and save to 'test.d.ts' `<reference/>` bundle:
-		
+
 	$ tsd query mocha chai -a install -r -o -s -b test
 
 Open 'pixi' in your browser on github:
-		
+
 	$ tsd query pixi -a browse
 
 ### Selectors
@@ -107,7 +107,7 @@ TSD uses a (globbing) path + filename selector to query the DefinitelyTyped inde
 	$ tsd query project/module
 
 Consider these definitions:
-	
+
 	project/module.d.ts
 	project/module-0.1.2.d.ts
 	project/module-addon.d.ts
@@ -119,7 +119,7 @@ Consider these definitions:
 
 Notice the pattern, and ignore the `.d.ts` extension:
 
-	<project>/<module><semver>.d.ts	
+	<project>/<module><semver>.d.ts
 
 Select definitions using only the module name:
 
@@ -182,8 +182,8 @@ $ tsd query d3 --date "<2012-01-01"
 
 ### Commit filter
 
-Use the `--commit` / `-c` option to supply sha1-hash of a commit (find a commit hash using `--history`), 
-for convenience a shortened sha1 hash is supported. 
+Use the `--commit` / `-c` option to supply sha1-hash of a commit (find a commit hash using `--history`),
+for convenience a shortened sha1 hash is supported.
 
 ````
 $ tsd query youtube --history
@@ -197,8 +197,8 @@ Notes:
 ## Usage as module
 
 Outdated info until after we push out the preview release, but intended to work (as it is a key to some planned dependencies).
- 
-TSD can be used as any JavaScript npm dependency in your project: the API used to implement the CLI is exposed: 
+
+TSD can be used as any JavaScript npm dependency in your project: the API used to implement the CLI is exposed:
 
 ````js
 var tsd = require('tsd');
@@ -212,11 +212,11 @@ api.search(new tsd.Selector('jquery/*')).then(function(res) {
 });
 ````
 
-TSD uses Promise/A+ by [kriskowal/q](https://github.com/kriskowal/q) and [kriskowal/q-io](https://github.com/kriskowal/q-io) packages. :point_left::+1: 
+TSD uses Promise/A+ by [kriskowal/q](https://github.com/kriskowal/q) and [kriskowal/q-io](https://github.com/kriskowal/q-io) packages. :point_left::+1:
 
-### API docs 
+### API docs
 
-Not yet. 
+Not yet.
 
 ## FAQ & Info
 
@@ -228,7 +228,7 @@ The DefinitelyTyped [group](https://github.com/DefinitelyTyped/tsd/issues) is wo
 
 ### Can TSD install the definitions for the correct module version or fork?
 
-Yes, and no (and later yes again) 
+Yes, and no (and later yes again)
 
 There is basic support for parsing semver-postfixes from the definition file names, and you can filter on this using [semver](https://github.com/isaacs/node-semver) ranges with the `--version` option: Try it with the 'node' definitions.
 
@@ -236,7 +236,7 @@ It works well but is not used much in the current DefinitelyTyped repository. Th
 
 ### What is the location of the cache folders?
 
-The cache is stored in the users home directory (like `$ npm`). Use `$ tsd settings` to view the current paths. Use the `--cacheDir` to override the cache directory, or `--cacheMode` to modify caching behaviour. 
+The cache is stored in the users home directory (like `$ npm`). Use `$ tsd settings` to view the current paths. Use the `--cacheDir` to override the cache directory, or `--cacheMode` to modify caching behaviour.
 
 ### Do you have a grunt task to automate some TSD tasks?
 
@@ -273,7 +273,7 @@ Some essential modules used to build TSD:
 
 * [es6-shim](https://github.com/paulmillr/es6-shim) & [weak-map](https://github.com/drses/weak-map) - Map, Sets and some usefull things.
 * [grunt-ts](https://github.com/basarat/grunt-ts) - TypeScript compiler for grunt.
-* [tslint](https://github.com/palantir/tslint) + [grunt-tslint](https://github.com/palantir/grunttslint) - TypeScript linter (contribute some rules!)
+* [tslint](https://github.com/palantir/tslint) + [grunt-tslint](https://github.com/palantir/grunt-tslint) - TypeScript linter (contribute some rules!)
 * [gruntfile-gtx](https://github.com/Bartvds/gruntfile-gtx) - Gruntfile powerbooster (by author).
 * [tv4](https://github.com/geraintluff/tv4) - JSON-Schema validation like a boss.
 * [q](https://github.com/kriskowal/q) and [q-io](https://github.com/kriskowal/q-io) - Promises as promised.
@@ -303,7 +303,7 @@ Either install global or use in dev folder:
 	$ npm install . -g
 
 TSD uses [gruntfile-gtx](https://github.com/Bartvds/gruntfile-gtx) to test separate test suites sets during development:
-	
+
 	// list aliases
 	$ grunt -h
 
@@ -319,13 +319,13 @@ Code looks best with tabs rendered at 4 spaces (3 is nice too, or 6 or 8.. I don
 
 ## Contribute
 
-Contributions will be welcome once the application architecture stabilises a bit more. If you want to fix some isolated thing in the development version then that is already appreciated, but please discuss in a [ticket](https://github.com/DefinitelyTyped/tsd/issues) first (or risk the basis of your work being re-factored). 
+Contributions will be welcome once the application architecture stabilises a bit more. If you want to fix some isolated thing in the development version then that is already appreciated, but please discuss in a [ticket](https://github.com/DefinitelyTyped/tsd/issues) first (or risk the basis of your work being re-factored).
 
 **Note:** TSD no longer maintains it's own data sources: contributions on definitions files go directly to [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped).
 
 ## Privacy statement
 
-The TSD CLI tool collects definition usage information, like the queries made to the repo and the definitions that get installed from the repos. The information collected amounts to about same level of detail as services like npm or github would collect (even less; as we don't track account id's). The API does not track anything. 
+The TSD CLI tool collects definition usage information, like the queries made to the repo and the definitions that get installed from the repos. The information collected amounts to about same level of detail as services like npm or github would collect (even less; as we don't track account id's). The API does not track anything.
 
 TSD uses [Google Analytics](http://www.google.com/analytics/) by the excellent [universal-analytics](https://npmjs.org/package/universal-analytics) package. We might at some point publish some anonymised aggregate stats to the DefinitelyTyped website.
 
@@ -335,12 +335,12 @@ Changes to the policy should be announced in release notes, and ideally ask conf
 
 Copyright (c) 2013 by [Bart van der Schoor](https://github.com/Bartvds).
 
-Licensed under the [Apache License, Version 2.0](https://raw.github.com/DefinitelyTyped/tsd/master/LICENSE.txt). 
+Licensed under the [Apache License, Version 2.0](https://raw.github.com/DefinitelyTyped/tsd/master/LICENSE.txt).
 
 * note: there is some imported MIT licensed code by myself, [Bart van der Schoor](https://github.com/Bartvds)
 
 Copyright (c) 2012 by [Diullei Gomes](https://github.com/Diullei).
 
-Licensed under the MIT License. 
+Licensed under the MIT License.
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/DefinitelyTyped/tsd/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
